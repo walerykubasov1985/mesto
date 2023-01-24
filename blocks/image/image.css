@@ -1,0 +1,10 @@
+.image {
+  margin: 0;
+  max-width: 282px;
+  min-height: 361px;
+  box-sizing: border-box;
+  background-color: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+
+}

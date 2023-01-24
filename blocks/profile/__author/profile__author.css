@@ -1,0 +1,15 @@
+.profile__author {
+  margin: 0 0 8px;
+  color: #fff;
+  font-size: 42px;
+  line-height: 48px;
+  font-weight: 500;
+}
+
+@media screen and (max-width: 384px) {
+  .profile__author {
+    margin-left: 28px;
+    font-size: 27px;
+    line-height: 26px;
+  }
+}

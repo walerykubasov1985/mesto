@@ -1,0 +1,27 @@
+.profile__author-btn {
+  display: inline-block;
+  padding: 0;
+  margin-left: 18px;
+  width: 24px;
+  height: 24px;
+  box-sizing: border-box;
+  background-image: url('../../../images/Vector.svg');
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-size: 10px 10px;
+  background-position: center;
+  border: 1px solid #fff;
+  cursor: pointer;
+}
+
+.profile__author-btn:hover {
+  opacity: .6;
+}
+
+@media screen and (max-width: 384px) {
+  .profile__author-btn {
+    margin-left: 10px;
+    width: 18px;
+    height: 18px;
+  }
+}

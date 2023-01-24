@@ -1,0 +1,34 @@
+.profile {
+  margin: 40px 200px 0;
+  display: grid;
+  column-gap: 30px;
+  grid-template-columns: 120px 1fr 150px;
+  align-items: center;
+}
+
+@media screen and (max-width: 1045px) {
+  .profile {
+    margin: 40px 60px 0;
+  }
+}
+
+@media screen and (max-width: 762px) {
+  .profile {
+    grid-template-columns: 120px 1fr;
+    row-gap: 36px;
+  }
+}
+
+@media screen and (max-width: 584px) {
+  .profile {
+    margin: 42px 19px 0;
+    grid-template-columns: 1fr;
+    justify-items: center;
+  }
+}
+
+@media screen and (max-width: 384px) {
+  .profile {
+    row-gap: 0;
+  }
+}

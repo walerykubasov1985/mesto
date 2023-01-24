@@ -1,0 +1,13 @@
+.footer__cooperait {
+  margin: 0;
+  color: #545;
+  font-size: 18px;
+  line-height: auto;
+  font-weight: 400;
+}
+
+@media screen and (max-width: 584px) {
+  .footer__cooperait {
+    font-size: 14px;
+  }
+}
