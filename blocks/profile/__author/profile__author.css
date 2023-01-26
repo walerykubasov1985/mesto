@@ -10,13 +10,6 @@
   text-overflow: ellipsis;
 }
 
-@media screen and (max-width: 584px) {
-  .profile__author {
-    /* margin-left: 28px; */
-
-  }
-}
-
 @media screen and (max-width: 384px) {
   .profile__author {
     margin-left: 28px;

@@ -12,25 +12,25 @@ let profileAuthorSubtitle = document.querySelector('.profile__author-subtitle');
 //подключение класса с dyspley:block//
 function popupOpened() {
   popup.classList.add('popup_opened');
-};
+}
 
 //отключение класса с dyspley:block//
 function popupClosed() {
   popup.classList.remove('popup_opened');
-};
+}
 
 //заполняем форму содержиым профиля//
 function textInput() {
   nameInput.value = profileAuthor.textContent;
   jobInput.value = profileAuthorSubtitle.textContent;
-};
+}
 
 //Меняем содержиым профиля//
 function handleFormSubmit(evt) {
   evt.preventDefault();
   profileAuthor.textContent = nameInput.value;
-  profileAuthorSubtitle.textContent = jobInput.value
-  popupClosed()
+  profileAuthorSubtitle.textContent = jobInput.value;
+  popupClosed();
 }
 
 textInput();
