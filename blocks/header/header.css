@@ -1,19 +1,19 @@
 .header {
   margin: 45px 200px 0;
-  /* max-width: 880px; */
   min-height: 74px;
-  border-bottom: 1px solid #545454;
+  box-sizing: border-box;
+  border-bottom: 1px solid rgba(84, 84, 84, .7);
 }
 
-@media screen and (max-width: 1044px) {
+@media screen and (max-width: 1074px) {
   .header {
     margin: 45px 60px 0;
   }
 }
 
-@media screen and (max-width: 584px) {
+@media screen and (max-width: 610px) {
   .header {
-    margin: 28px 27px 0;
+    margin: 28px 0 0;
     min-height: 56px;
   }
 }

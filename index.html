@@ -5,25 +5,13 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="keywords" content="Куршская коса, Кольский, Алтай, Зимний Байкал, Карелия">
-  <meta name="deseription"
-    content=" Россия — это целая вселенная с ласковым морем юга, густыми лесами Саян и суровыми льдами плато Путорана">
-  <title>Путешествия по России</title>
+  <meta name="keywords" content="Карачевск, Эльбрус, Камчатка, Антарктида,Домбай">
+  <meta name="deseription" content=" Жак-Ив Кусто = исследователь океана">
+  <title>Mesto</title>
   <link rel="stylesheet" href="pages/index.css">
 </head>
 
 <body class="page">
-  <section class="popup">
-    <div class="popup__container">
-      <h2 class="popup__title">Редактировать профиль</h2>
-      <form class="popup__form" name="popup-form">
-        <input class="popup__author" type="text" name="name" value="" id="name">
-        <input class="popup__author-subtitle" type="text" name="text" value="" id="job">
-        <button class="popup__button" type="submit">Сохранить</button>
-      </form>
-      <button class="popup__button-close"></button>
-    </div>
-  </section>
   <header class="header">
     <img class="header__logo" src="images/logo-min.svg" alt="Логотип Место-Россия">
   </header>
@@ -32,67 +20,79 @@
       <img class="profile__avatar" src="images/Avatar-min.svg" alt="фото Жак-Ив Кусто">
       <div class="profile__info">
         <h1 class="profile__author">Жак-Ив Кусто</h1>
-        <button class="profile__author-btn"></button>
+        <button class="profile__author-btn" type="button"></button>
         <p class="profile__author-subtitle">Исследователь океана</p>
       </div>
-      <button class="profile__add-button"></button>
-    </section>>
+      <button class="profile__add-button" type="button"></button>
+    </section>
 
     <section class="images">
-      <figure class="image">
+      <article class="image">
         <img class="image__photo" src="images/karachevsk.jpg" alt="Фото Карачевск">
-        <figcaption class="image__caption">
+        <div class="image__caption">
           <h2 class="image__title">Карачаевск</h2>
-          <div class="image__element-heart"></div>
-        </figcaption>
-      </figure>
+          <button class="image__btn-heart" type="button"></button>
+        </div>
+      </article>
 
-      <figure class="image">
+      <article class="image">
         <img class="image__photo" src="images/elbrus.png" alt="Фото Эльбрус">
-        <figcaption class="image__caption">
+        <div class="image__caption">
           <h2 class="image__title">Гора Эльбрус</h2>
-          <div class="image__element-heart"></div>
-        </figcaption>
-      </figure>
+          <button class="image__btn-heart" type="button"></button>
+        </div>
+      </article>
 
-      <figure class="image">
+      <article class="image">
         <img class="image__photo" src="images/dombai.png" alt="Фото Домбай">
-        <figcaption class="image__caption">
+        <div class="image__caption">
           <h2 class="image__title">Домбай</h2>
-          <div class="image__element-heart"></div>
-        </figcaption>
-      </figure>
+          <button class="image__btn-heart" type="button"></button>
+        </div>
+      </article>
 
-      <figure class="image">
+      <article class="image">
         <img class="image__photo" src="images/antarktida.png" alt="Фото Антарктида">
-        <figcaption class="image__caption">
+        <div class="image__caption">
           <h2 class="image__title">Антарктида</h2>
-          <div class="image__element-heart"></div>
-        </figcaption>
-      </figure>
+          <button class="image__btn-heart" type="button"></button>
+        </div>
+      </article>
 
-      <figure class="image">
+      <article class="image">
         <img class="image__photo" src="images/kamchatka.png" alt="Фото Камчатки">
-        <figcaption class="image__caption">
+        <div class="image__caption">
           <h2 class="image__title">Камчатка</h2>
-          <div class="image__element-heart"></div>
-        </figcaption>
-      </figure>
+          <button class="image__btn-heart" type="button"></button>
+        </div>
+      </article>
 
-      <figure class="image">
+      <article class="image">
         <img class="image__photo" src="images/cherkesk.png" alt="Фото Карачаево-Черкессия">
-        <figcaption class="image__caption">
+        <div class="image__caption">
           <h2 class="image__title">Карачаево-Черкессия</h2>
-          <div class="image__element-heart"></div>
-        </figcaption>
-      </figure>
+          <div class="image__btn-heart" type="button"></div>
+        </div>
+      </article>
     </section>
   </main>
   <footer class="footer">
     <p class="footer__cooperait">&copy; 2020 Mesto Russia</p>
   </footer>
 
-  <script src="script/script.js"></script>
+  <div class="popup">
+    <div class="popup__container">
+      <h2 class="popup__title">Редактировать профиль</h2>
+      <form class="form" name="form">
+        <input class="form__input form__input_name" type="text" name="name" value="">
+        <input class="form__input form__input_job" type="text" name="job" value="">
+        <button class="form__button" type="submit">Сохранить</button>
+      </form>
+      <button class="popup__button-close" type="button"></button>
+    </div>
+  </div>
+
+  <script async src="scripts/index.js"></script>
 </body>
 
 </html>

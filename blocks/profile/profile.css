@@ -2,28 +2,34 @@
   margin: 40px 200px 0;
   display: grid;
   column-gap: 30px;
+  grid-template-areas: "avatar info button-add";
   grid-template-columns: 120px 1fr 150px;
   align-items: center;
 }
 
-@media screen and (max-width: 1045px) {
+@media screen and (max-width: 1074px) {
   .profile {
     margin: 40px 60px 0;
   }
 }
 
-@media screen and (max-width: 762px) {
+@media screen and (max-width: 794px) {
   .profile {
+    grid-template-areas: "avatar info"
+      "button-add button-add";
     grid-template-columns: 120px 1fr;
     row-gap: 36px;
+
   }
 }
 
-@media screen and (max-width: 584px) {
+@media screen and (max-width: 610px) {
   .profile {
     margin: 42px 19px 0;
+    grid-template-areas: "avatar"
+      "info"
+      "button-add";
     grid-template-columns: 1fr;
-    justify-items: center;
   }
 }
 

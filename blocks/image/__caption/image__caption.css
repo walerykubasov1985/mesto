@@ -1,9 +1,9 @@
 .image__caption {
-  margin: 25px 15px 31px 21px;
-  max-width: 246px;
-  height: 23px;
+  margin: 0 15px 0 21px;
+  max-width: 100%;
+  min-height: 79px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  align-items: flex-end;
+  align-items: center;
 }

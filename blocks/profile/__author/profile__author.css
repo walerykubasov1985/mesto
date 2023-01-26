@@ -1,14 +1,26 @@
 .profile__author {
   margin: 0 0 8px;
+  max-width: 294px;
   color: #fff;
   font-size: 42px;
   line-height: 48px;
   font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@media screen and (max-width: 584px) {
+  .profile__author {
+    /* margin-left: 28px; */
+
+  }
 }
 
 @media screen and (max-width: 384px) {
   .profile__author {
     margin-left: 28px;
+    max-width: 189px;
     font-size: 27px;
     line-height: 26px;
   }

@@ -2,13 +2,13 @@
   margin: 66px 200px 60px;
 }
 
-@media screen and (max-width: 1044px) {
+@media screen and (max-width: 1074px) {
   .footer {
     margin: 66px 60px 60px;
   }
 }
 
-@media screen and (max-width: 584px) {
+@media screen and (max-width: 610px) {
   .footer {
     margin: 48px 19px 36px;
   }
