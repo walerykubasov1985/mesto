@@ -21,6 +21,7 @@
 @media screen and (max-width: 384px) {
   .profile__author-btn {
     margin-left: 10px;
+    margin-bottom: 5px;
     width: 18px;
     height: 18px;
   }
