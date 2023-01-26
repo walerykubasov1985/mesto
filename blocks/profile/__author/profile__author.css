@@ -12,7 +12,6 @@
 @media screen and (max-width: 384px) {
   .profile__author {
     margin-left: 28px;
-    max-width: 189px;
     font-size: 27px;
     line-height: normal;
   }
