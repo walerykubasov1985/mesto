@@ -1,6 +1,6 @@
 .profile__author-subtitle {
   margin: 8px 0 0;
-  max-width: 336px;
+  min-width: 336px;
   color: #fff;
   font-size: 18px;
   line-height: 18px;
@@ -10,7 +10,13 @@
   text-overflow: ellipsis;
 }
 
-@media screen and (max-width: 384px) {
+@media screen and (max-width: 620px) {
+  .profile__author-subtitle {
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 394px) {
   .profile__author-subtitle {
     max-width: 100%;
     font-size: 14px;

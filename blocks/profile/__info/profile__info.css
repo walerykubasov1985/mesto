@@ -1,21 +1,21 @@
 .profile__info {
   grid-area: info;
   display: flex;
-  width: 340px;
+  max-width: 336px;
   flex-wrap: wrap;
   justify-content: flex-start;
   align-items: center;
   align-content: center;
 }
 
-@media screen and (max-width: 610px) {
+@media screen and (max-width: 620px) {
   .profile__info {
     margin: 0 auto;
     justify-content: center;
   }
 }
 
-@media screen and (max-width: 384px) {
+@media screen and (max-width: 394px) {
   .profile__info {
     max-width: 282px;
     margin-top: 26px;

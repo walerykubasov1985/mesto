@@ -7,13 +7,13 @@
   align-items: center;
 }
 
-@media screen and (max-width: 1074px) {
+@media screen and (max-width: 1084px) {
   .profile {
     margin: 40px 60px 0;
   }
 }
 
-@media screen and (max-width: 794px) {
+@media screen and (max-width: 805px) {
   .profile {
     grid-template-areas: "avatar info"
       "button-add button-add";
@@ -23,7 +23,7 @@
   }
 }
 
-@media screen and (max-width: 610px) {
+@media screen and (max-width: 620px) {
   .profile {
     margin: 42px 19px 0;
     grid-template-areas: "avatar"
@@ -33,7 +33,7 @@
   }
 }
 
-@media screen and (max-width: 384px) {
+@media screen and (max-width: 394px) {
   .profile {
     row-gap: 0;
   }

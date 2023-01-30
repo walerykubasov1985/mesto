@@ -1,5 +1,6 @@
 .profile__author {
   margin: 0 0 8px;
+  max-width: 294px;
   color: #fff;
   font-size: 42px;
   line-height: 48px;
@@ -9,9 +10,9 @@
   text-overflow: ellipsis;
 }
 
-@media screen and (max-width: 384px) {
+@media screen and (max-width: 394px) {
   .profile__author {
-    margin-left: 28px;
+    margin-left: auto;
     font-size: 27px;
     line-height: normal;
   }

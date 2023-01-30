@@ -3,26 +3,27 @@ let buttenOpen = document.querySelector('.profile__author-btn');
 let buttenClose = document.querySelector('.popup__button-close');
 
 let formElement = document.querySelector('.form');
-let nameInput = document.querySelector('.form__input_name');
-let jobInput = document.querySelector('.form__input_job');
+let nameInput = document.querySelector('.form__input_type_name');
+let jobInput = document.querySelector('.form__input_type_job');
 
 let profileAuthor = document.querySelector('.profile__author');
 let profileAuthorSubtitle = document.querySelector('.profile__author-subtitle');
 
+//заполняем форму содержиым профиля//
+function setFieldData() {
+  nameInput.value = profileAuthor.textContent;
+  jobInput.value = profileAuthorSubtitle.textContent;
+}
+
 //подключение класса с dyspley:block//
-function popupOpened() {
+function openPopup() {
   popup.classList.add('popup_opened');
+  setFieldData();
 }
 
 //отключение класса с dyspley:block//
-function popupClosed() {
+function closePopup() {
   popup.classList.remove('popup_opened');
-}
-
-//заполняем форму содержиым профиля//
-function textInput() {
-  nameInput.value = profileAuthor.textContent;
-  jobInput.value = profileAuthorSubtitle.textContent;
 }
 
 //Меняем содержиым профиля//
@@ -30,10 +31,9 @@ function handleFormSubmit(evt) {
   evt.preventDefault();
   profileAuthor.textContent = nameInput.value;
   profileAuthorSubtitle.textContent = jobInput.value;
-  popupClosed();
+  closePopup();
 }
 
-textInput();
-buttenOpen.addEventListener('click', popupOpened);
-buttenClose.addEventListener('click', popupClosed);
+buttenOpen.addEventListener('click', openPopup);
+buttenClose.addEventListener('click', closePopup);
 formElement.addEventListener('submit', handleFormSubmit);

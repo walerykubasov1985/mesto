@@ -18,7 +18,7 @@
   opacity: .6;
 }
 
-@media screen and (max-width: 384px) {
+@media screen and (max-width: 394px) {
   .profile__author-btn {
     margin-left: 10px;
     margin-bottom: 5px;

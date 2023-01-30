@@ -1,4 +1,4 @@
-.image__btn-heart {
+.image__btn-like {
   padding: 0;
   width: 22px;
   height: 19px;
@@ -11,6 +11,6 @@
   cursor: pointer;
 }
 
-.image__btn-heart:hover {
+.image__btn-like:hover {
   opacity: .5;
 }
