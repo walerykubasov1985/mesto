@@ -4,6 +4,7 @@
   height: 19px;
   box-sizing: border-box;
   background-image: url('../../../images/heart.svg');
+  background-color: transparent;
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;

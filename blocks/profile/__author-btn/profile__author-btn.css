@@ -1,17 +1,18 @@
 .profile__author-btn {
-  display: inline-block;
+  box-sizing: border-box;
+  display: block;
+  margin-top: 6px;
   padding: 0;
-  margin-left: 18px;
   width: 24px;
   height: 24px;
   box-sizing: border-box;
   background-image: url('../../../images/Vector.svg');
   background-color: transparent;
   background-repeat: no-repeat;
-  background-size: 10px 10px;
   background-position: center;
   border: 1px solid #fff;
   cursor: pointer;
+  align-self: center;
 }
 
 .profile__author-btn:hover {
@@ -20,8 +21,7 @@
 
 @media screen and (max-width: 394px) {
   .profile__author-btn {
-    margin-left: 10px;
-    margin-bottom: 5px;
+    margin-top: 3px;
     width: 18px;
     height: 18px;
   }

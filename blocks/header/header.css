@@ -5,7 +5,7 @@
   border-bottom: 1px solid rgba(84, 84, 84, .7);
 }
 
-@media screen and (max-width: 1074px) {
+@media screen and (max-width: 1084px) {
   .header {
     margin: 45px 60px 0;
   }

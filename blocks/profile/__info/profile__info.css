@@ -1,17 +1,15 @@
 .profile__info {
   grid-area: info;
-  display: flex;
-  max-width: 336px;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-  align-items: center;
-  align-content: center;
+  display: grid;
+  grid-template-columns: auto auto;
+  column-gap: 19px;
+  justify-content: start;
 }
 
 @media screen and (max-width: 620px) {
   .profile__info {
     margin: 0 auto;
-    justify-content: center;
+    column-gap: 10px;
   }
 }
 
