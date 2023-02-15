@@ -37,6 +37,7 @@
 
 @import url(../blocks/form/form.css);
 @import url(../blocks/form/_card/form_card.css);
+@import url(../blocks/form/_profil/form_profil.css);
 @import url(../blocks/form/__input/form__input.css);
 @import url(../blocks/form/__input/_type/form__input_type_name.css);
 @import url(../blocks/form/__input/_type/form__input_type_job.css);
