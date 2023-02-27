@@ -39,9 +39,18 @@
 @import url(../blocks/form/_card/form_card.css);
 @import url(../blocks/form/_profil/form_profil.css);
 @import url(../blocks/form/__input/form__input.css);
+@import url(../blocks/form/__input-error/form__input-error.css);
+@import url(../blocks/form/__input-error/_activ/form__input-error_activ.css);
+@import url(../blocks/name-error.css);
+@import url(../blocks/job-error.css);
+@import url(../blocks/cardName-error.css);
+@import url(../blocks/cardPhoto-error.css);
+
+@import url(../blocks/form/__input/_type/form__input_type_error.css);
 @import url(../blocks/form/__input/_type/form__input_type_name.css);
 @import url(../blocks/form/__input/_type/form__input_type_job.css);
 @import url(../blocks/form/__input/_type/form__input_type_card-name.css);
 @import url(../blocks/form/__input/_type/form__input_type_card-photo.css);
 
 @import url(../blocks/form/__button/form__button.css);
+@import url(../blocks/form/__button/_inactive/form__button_inactive.css);

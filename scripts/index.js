@@ -9,7 +9,7 @@ const buttenCloseProfil = popupProfil.querySelector('.popup__button-close');
 const buttenCloseAddCard = popupAddCard.querySelector('.popup__button-close');
 const buttenClosePhoto = popupPhoto.querySelector('.popup__button-close');
 
-let formProfilElement = document.querySelector('.form_profil');
+const formProfilElement = document.querySelector('.form_profil');
 const nameInput = document.querySelector('.form__input_type_name');
 const jobInput = document.querySelector('.form__input_type_job');
 
