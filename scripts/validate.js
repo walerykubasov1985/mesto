@@ -1,70 +1,81 @@
-const form = document.querySelector('.form');
-const formInput = form.querySelector('.form__input');
-const formError = form.querySelector(`.${formInput.id}-error`)
-
-
-const showError = (formElement, inputElement, errorMessage) => {
-  const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
-  inputElement.classList.add('form__input_type_error');
-  errorElement.textContent = errorMessage;
-  errorElement.classList.add('form__input-error_activ');
+const validationInput = {
+  formSelector: '.form',
+  inputSelector: '.form__input',
+  submitButtonSelector: '.form__button',
+  inactiveButtonClass: 'form__button_inactive',
+  inputErrorClass: 'form__input_type_error',
+  errorClass: 'form__input-error_activ'
 };
 
-const hideError = (formElement, inputElement) => {
+//функция ошибки
+const showInputError = (formElement, inputElement, errorMessage) => {
   const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
-  inputElement.classList.remove('form__input_type_error');
-  errorElement.classList.remove('form__input-error_activ');
+  inputElement.classList.add(validationInput.inputErrorClass);
+  errorElement.textContent = errorMessage;
+  errorElement.classList.add(validationInput.errorClass);
+};
+
+//функция удаления ошибки
+const hideInputError = (formElement, inputElement) => {
+  const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
+  inputElement.classList.remove(validationInput.inputErrorClass);
+  errorElement.classList.remove(validationInput.errorClass);
   errorElement.textContent = '';
 };
 
-const checkInputValidity = (formElement, inputElement) => {
+//функция проверки валидности
+const isValid = (formElement, inputElement) => {
   if (!inputElement.validity.valid) {
-    showError(formElement, inputElement, inputElement.validationMessage)
-  }
-  else {
-    hideError(formElement, inputElement)
+    showInputError(formElement, inputElement, inputElement.validationMessage);
+  } else {
+    hideInputError(formElement, inputElement);
   }
 };
 
+//функция проверки всех полей ввода на валидность
 const hasInvalidInput = (inputList) => {
   return inputList.some((inputElement) => {
-    return !inputElement.validity.valid
+    return !inputElement.validity.valid;
   })
-}
+};
+
+//функция включения/отключения кнопки
 const toggleButtonState = (inputList, buttonElement) => {
   if (hasInvalidInput(inputList)) {
-    buttonElement.classList.add('form__button_inactive');
+    buttonElement.classList.add(validationInput.inactiveButtonClass);
     buttonElement.setAttribute('disabled', true);
+  } else {
+    buttonElement.classList.remove(validationInput.inactiveButtonClass);
+    buttonElement.removeAttribute('disabled', true);
   }
-  else {
-    buttonElement.classList.remove('form__button_inactive');
-    buttonElement.removeAttribute('disabled');
-  }
-}
+};
 
-function setEventListeners(formElement) {
-  const inputList = Array.from(formElement.querySelectorAll('.form__input'));
-  const buttonElement = formElement.querySelector('.form__button');
+//функция добавления слушателя полям формы
+const setEventListeners = (formElement) => {
+  const inputList = Array.from(formElement.querySelectorAll(validationInput.inputSelector));
+  const buttonElement = formElement.querySelector(validationInput.submitButtonSelector);
   toggleButtonState(inputList, buttonElement);
   inputList.forEach((inputElement) => {
-    inputElement.addEventListener('input', function () {
-      checkInputValidity(formElement, inputElement);
+    inputElement.addEventListener('input', () => {
+      isValid(formElement, inputElement);
       toggleButtonState(inputList, buttonElement);
-    })
-    console.log(toggleButtonState(inputList, buttonElement))
-  })
-}
+    });
+  });
+};
 
-
-
+//функция добавления обработки слушателя всем формам
 const enableValidation = () => {
-  formList = Array.from(document.querySelectorAll('.form'))
+  const formList = Array.from(document.querySelectorAll(validationInput.formSelector));
   formList.forEach((formElement) => {
-    formElement.addEventListener('submit', function (evt) {
-      evt.preventDefault()
-    })
-    setEventListeners(formElement)
-  })
-}
+    setEventListeners(formElement);
+  });
+};
+
 enableValidation()
+
+
+
+
+
+
 
