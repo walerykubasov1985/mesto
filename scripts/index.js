@@ -86,12 +86,44 @@ function setPopupPhoto(data) {
 //открытие попапов//
 function openPopups(popup) {
   popup.classList.add('popup_opened');
+  popup.addEventListener('click', closePopupsOverlay);
+  document.addEventListener('keydown', closePopupsEscape);
 }
 
 //Закрытие попапов//
 function closePopups(popup) {
   popup.classList.remove('popup_opened');
+  document.removeEventListener('keydown', closePopupsEscape);
+  popup.removeEventListener('click', closePopupsOverlay);
 }
+
+//Закрытие попапов ESC //
+function closePopupsEscape(evt) {
+  if (evt.key === 'Escape') {
+    const popups = document.querySelectorAll('.popup');
+    popups.forEach((i) => {
+      i.classList.remove('popup_opened')
+    })
+    }
+  }
+//     const openedPopup = document.querySelector('.popup_opened');
+//     if (openedPopup) {
+//       openedPopup.classList.remove('popup_opened');
+//     }
+//   }
+// }
+
+//Закрытие попапов по клику вне//
+function closePopupsOverlay(evt) {
+  if (evt.target === evt.currentTarget) {
+    const openedPopup = document.querySelector('.popup_opened');
+    if (openedPopup) {
+      openedPopup.classList.remove('popup_opened');
+
+    }
+  }
+}
+
 
 //заполняем форму содержиым профиля//
 function setFieldData() {
@@ -110,6 +142,9 @@ function submitFormProfile(evt) {
 buttenOpen.addEventListener('click', () => { openPopups(popupProfil); setFieldData(); });
 buttenCloseProfil.addEventListener('click', () => { closePopups(popupProfil) });
 buttenCloseAddCard.addEventListener('click', () => { closePopups(popupAddCard) });
+// document.addEventListener('keydown', closePopupsEscape);
+
+// document.addEventListener('keydown', (evt) => { if (evt.key === 'Escape') {closePopups(popupAddCard); closePopups(popupProfil); closePopups(popupPhoto)}})
 buttenClosePhoto.addEventListener('click', () => { closePopups(popupPhoto) });
 buttenAddCard.addEventListener('click', () => { openPopups(popupAddCard) });
 formProfilElement.addEventListener('submit', submitFormProfile);
