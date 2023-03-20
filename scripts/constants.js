@@ -21,7 +21,7 @@ const profileAuthor = document.querySelector('.profile__author');
 const profileAuthorSubtitle = document.querySelector('.profile__author-subtitle');
 
 const images = document.querySelector('.images');
-const templateImage = document.querySelector('#images-temlate').content;
+// const templateImage = document.querySelector('#images-temlate').content;
 
 const photo = document.querySelector('.popup__image');
 const namePhoto = document.querySelector('.popup__name-image');

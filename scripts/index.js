@@ -1,50 +1,29 @@
+validProfil = new FormValidator(validationInput, popupProfil);
+validAddCard = new FormValidator(validationInput, popupAddCard);
+validProfil.enableValidation();
+validAddCard.enableValidation();
 
-//создание карточки//
-const createCard = (data) => {
-  const cardElement = templateImage.querySelector('.image').cloneNode(true);
-  const newImage = cardElement.querySelector('.image__photo');
-  const newName = cardElement.querySelector('.image__title');
-  newImage.src = data.link;
-  newName.textContent = data.name;
-  newImage.alt = data.name;
-  const like = cardElement.querySelector('.image__btn-like');
-  const deleteBtnCard = cardElement.querySelector('.image__delete');
-  like.addEventListener('click', aktivLike);
-  deleteBtnCard.addEventListener('click', deleteCard);
-  newImage.addEventListener('click', () => {
-    setPopupPhoto(data);
-    openPopup(popupPhoto);
-  });
-  return cardElement
-}
+initialCards.forEach((item) => {
+  const card = new Card(item);
+  const cardElement = card.generateCard();
+  images.append(cardElement);
+});
 
 //вставка карточки в images//
-const renderCard = (images, data) => {
-  images.prepend(createCard(data));
-}
-
-//инициализация карточек из массиве//
-initialCards.forEach(data => {
-  renderCard(images, data);
-})
-
-//функция активации лайка//
-function aktivLike(evt) {
-  evt.target.classList.toggle('image__btn-like_activ');
-}
-//функция удаления карточки с картинкой//
-function deleteCard(evt) {
-  evt.target.closest('.image').remove();
+const renderCard = (data) => {
+  const card = new Card(data);
+  const cardElement = card.generateCard();
+  images.prepend(cardElement);
 }
 
 //добавление в попап-карточки значения//
 formCardElement.addEventListener('submit', (evt) => {
   evt.preventDefault();
-  data = {
+  item = {
     name: formInputName.value,
     link: formInputLink.value
   }
-  renderCard(images, data);
+  renderCard(item);
   closePopup(popupAddCard);
   evt.target.reset()
 })
