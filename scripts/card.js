@@ -1,11 +1,12 @@
-class Card {
-  constructor(data) {
+export class Card {
+  constructor(data, templateElement) {
     this._name = data.name;
     this._link = data.link;
+    this._templateElement = templateElement;
   }
 
   _getTemplate() {
-    const cardElement = document.querySelector('#images-template').content.querySelector('.image').cloneNode(true);
+    const cardElement = document.querySelector(this._templateElement).content.querySelector('.image').cloneNode(true);
     return cardElement;
   }
 
@@ -19,12 +20,10 @@ class Card {
     return this._element;
   }
 
-
-
   _setEventListeners() {
     this._element.querySelector('.image__btn-like').addEventListener('click', () => { this._aktivLike() });
     this._element.querySelector('.image__delete').addEventListener('click', () => { this._deleteCard() });
-    this._element.querySelector('.image__photo').addEventListener('click', () => { this._setPopupPhoto() });
+    this._element.querySelector('.image__photo').addEventListener('click', () => { this._openPopupImage(); this._setPopupPhoto() });
   }
 
   //функция активации лайка//
@@ -35,14 +34,16 @@ class Card {
   _deleteCard = () => {
     this._element.remove();
   }
+  _openPopupImage = () => {
+    document.querySelector('.popup_open-photo').classList.add('popup_opened');
+  }
   //наполнение попа сфото информацией//
   _setPopupPhoto = () => {
-    closePopup(popupPhoto);
-    openPopup(popupPhoto);
-    photo.src = this._link;
-    namePhoto.textContent = this._name;
-    photo.alt = this._name;
+    document.querySelector('.popup__image').src = this._link;
+    document.querySelector('.popup__name-image').textContent = this._name;
+    document.querySelector('.popup__name-image').alt = this._name;
   }
+
 }
 
 

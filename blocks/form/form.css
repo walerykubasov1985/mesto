@@ -3,7 +3,7 @@
   padding-bottom: 37px;
   display: flex;
   flex-direction: column;
-
+  justify-content: space-between;
 }
 
 @media screen and (max-width: 584px) {
@@ -12,3 +12,4 @@
     padding-bottom: 25px;
   }
 }
+

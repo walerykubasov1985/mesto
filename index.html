@@ -39,10 +39,16 @@
     <div class="popup__container">
       <h2 class="popup__title">Редактировать профиль</h2>
       <form class="form form_profil" name="form_profil" novalidate>
-        <input class="form__input form__input_type_name" id="name" type="text" name="name" value="" placeholder="Имя" required minlength='2' maxlength='40'>
-        <span class="form__input-error name-error"></span>
-        <input class="form__input form__input_type_job" id="job" type="text" name="job" value="" placeholder="О себе" required minlength='2' maxlength='200'>
-        <span class="form__input-error job-error"></span>
+        <label class="form__field">
+          <input class="form__input form__input_type_name" id="name" type="text" name="name" value="" placeholder="Имя"
+            required minlength='2' maxlength='40'>
+          <span class="form__input-error name-error"></span>
+        </label>
+        <label class="form__field">
+          <input class="form__input form__input_type_job" id="job" type="text" name="job" value="" placeholder="О себе"
+            required minlength='2' maxlength='200'>
+          <span class="form__input-error job-error"></span>
+        </label>
         <button class="form__button" type="submit">Сохранить</button>
       </form>
       <button class="popup__button-close" type="button"></button>
@@ -53,12 +59,16 @@
     <div class="popup__container">
       <h2 class="popup__title">Новое место</h2>
       <form class="form form_card" name="form_card" novalidate>
-        <input class="form__input form__input_type_card-name" id="cardName" type="text" name="card-name" placeholder="Название"
-          value="" required minlength='2' maxlength='30'>
+        <label class="form__field">
+          <input class="form__input form__input_type_card-name" id="cardName" type="text" name="card-name"
+            placeholder="Название" value="" required minlength='2' maxlength='30'>
           <span class="form__input-error cardName-error"></span>
-        <input class="form__input form__input_type_card-photo" id="cardPhoto" type="URL" name="card-photo"
-          placeholder="Ссылка на картинку" value="" required>
+        </label>
+        <label class="form__field">
+          <input class="form__input form__input_type_card-photo" id="cardPhoto" type="URL" name="card-photo"
+            placeholder="Ссылка на картинку" value="" required>
           <span class="form__input-error cardPhoto-error"></span>
+        </label>
         <button class="form__button" type="submit">Создать</button>
       </form>
       <button class="popup__button-close" type="button"></button>
@@ -74,7 +84,7 @@
   </div>
 
   <template id="images-template">
-    <article class="image" >
+    <article class="image">
       <img class="image__photo" src="#" alt="">
       <button class="image__delete" type="button"></button>
       <div class="image__caption">
@@ -84,11 +94,7 @@
     </article>
   </template>
 
-  <script src="scripts/validate.js"></script>
-  <script src="scripts/cards.js"></script>
-  <script src="scripts/constants.js"></script>
-  <script src="scripts/card.js"></script>
-  <script async src="scripts/index.js"></script>
+  <script type="module" src="scripts/index.js"></script>
 
 </body>
 

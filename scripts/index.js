@@ -1,39 +1,47 @@
-validProfil = new FormValidator(validationInput, popupProfil);
-validAddCard = new FormValidator(validationInput, popupAddCard);
+import {
+  popupProfil, popupAddCard, buttenOpen, buttenAddCard, formProfilElement, nameInput, jobInput, formCardElement, formInputName, formInputLink,
+  profileAuthor, profileAuthorSubtitle, images, popups
+} from './constants.js';
+import { initialCards } from './cards.js';
+import { Card } from './card.js';
+import { validationInput, FormValidator } from './validate.js'
+
+
+const validProfil = new FormValidator(validationInput, popupProfil);
+const validAddCard = new FormValidator(validationInput, popupAddCard);
 validProfil.enableValidation();
 validAddCard.enableValidation();
 
-initialCards.forEach((item) => {
-  const card = new Card(item);
-  const cardElement = card.generateCard();
-  images.append(cardElement);
-});
-
-//вставка карточки в images//
-const renderCard = (data) => {
-  const card = new Card(data);
-  const cardElement = card.generateCard();
-  images.prepend(cardElement);
+//создание карточки с фото и лайком
+const createNewCard = (data) => {
+  const card = new Card(data, '#images-template');
+  return card.generateCard();
 }
 
-//добавление в попап-карточки значения//
-formCardElement.addEventListener('submit', (evt) => {
+//вставка всех карточек в images
+initialCards.forEach((data) => {
+  images.append(createNewCard(data));
+});
+
+//вставка карточки в images
+const renderCard = (data) => {
+  images.prepend(createNewCard(data));
+}
+const formCard = (evt) => {
   evt.preventDefault();
-  item = {
+  const formInputName = document.querySelector('.form__input_type_card-name');
+  const formInputLink = document.querySelector('.form__input_type_card-photo');
+  const item = {
     name: formInputName.value,
     link: formInputLink.value
   }
   renderCard(item);
   closePopup(popupAddCard);
   evt.target.reset()
-})
-
-//наполнение попа сфото информацией//
-function setPopupPhoto(data) {
-  photo.src = data.link;
-  namePhoto.textContent = data.name;
-  photo.alt = data.name;
 }
+
+//добавление в попап-карточки значения//
+formCardElement.addEventListener('submit', formCard)
 
 //открытие попапа//
 function openPopup(popup) {
@@ -72,6 +80,11 @@ function setFieldData() {
   jobInput.value = profileAuthorSubtitle.textContent;
 }
 
+function setFieldDataCard() {
+  formInputName.value = '';
+  formInputLink.value = '';
+}
+
 //Меняем содержиым профиля//
 function submitFormProfile(evt) {
   evt.preventDefault();
@@ -81,8 +94,8 @@ function submitFormProfile(evt) {
   evt.target.reset();
 }
 
-buttenOpen.addEventListener('click', () => { openPopup(popupProfil); setFieldData(); });
-buttenAddCard.addEventListener('click', () => { openPopup(popupAddCard) });
+buttenOpen.addEventListener('click', () => { openPopup(popupProfil); setFieldData(); validProfil.resetInputs() });
+buttenAddCard.addEventListener('click', () => { openPopup(popupAddCard); setFieldDataCard(); validAddCard.resetInputs(); });
 formProfilElement.addEventListener('submit', submitFormProfile);
 
 

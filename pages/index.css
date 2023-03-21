@@ -51,6 +51,7 @@
 @import url(../blocks/form/__input/_type/form__input_type_job.css);
 @import url(../blocks/form/__input/_type/form__input_type_card-name.css);
 @import url(../blocks/form/__input/_type/form__input_type_card-photo.css);
+@import url(../blocks/form/__field/form__field.css);
 
 @import url(../blocks/form/__button/form__button.css);
 @import url(../blocks/form/__button/_inactive/form__button_inactive.css);
