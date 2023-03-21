@@ -3,8 +3,8 @@ import {
   profileAuthor, profileAuthorSubtitle, images, popups
 } from './constants.js';
 import { initialCards } from './cards.js';
-import { Card } from './card.js';
-import { validationInput, FormValidator } from './validate.js'
+import { Card } from './Card.js';
+import { validationInput, FormValidator } from './Validate.js'
 
 
 const validProfil = new FormValidator(validationInput, popupProfil);
