@@ -1,12 +1,3 @@
-export const validationInput = {
-  formSelector: '.form',
-  inputSelector: '.form__input',
-  submitButtonSelector: '.form__button',
-  inactiveButtonClass: 'form__button_inactive',
-  inputErrorClass: 'form__input_type_error',
-  errorClass: 'form__input-error_activ'
-};
-
 export class FormValidator {
   constructor(data, form) {
     this._formSelector = data.formSelector;
@@ -85,14 +76,17 @@ export class FormValidator {
     this._setEventListeners();
   }
 
-  //сброс инпутов
-  resetInputs() {
-    this._inputList.forEach((input) => {
-      input.classList.remove(this._inputErrorClass);
-      input.nextElementSibling.textContent = '';
+  //сброс инпутов и кнопок
+  resetInputAndButton() {
+    this._inputList.forEach((inputElement) => {
+      this._hideInputError(inputElement);
+
+      this._toggleButtonState();
     })
   }
+
 }
+
 
 
 

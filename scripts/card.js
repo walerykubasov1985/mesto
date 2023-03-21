@@ -23,7 +23,7 @@ export class Card {
   _setEventListeners() {
     this._element.querySelector('.image__btn-like').addEventListener('click', () => { this._aktivLike() });
     this._element.querySelector('.image__delete').addEventListener('click', () => { this._deleteCard() });
-    this._element.querySelector('.image__photo').addEventListener('click', () => { this._openPopupImage(); this._setPopupPhoto() });
+    this._element.querySelector('.image__photo').addEventListener('click', () => { this._setPopupPhoto() });
   }
 
   //функция активации лайка//
@@ -34,11 +34,10 @@ export class Card {
   _deleteCard = () => {
     this._element.remove();
   }
-  _openPopupImage = () => {
-    document.querySelector('.popup_open-photo').classList.add('popup_opened');
-  }
+
   //наполнение попа сфото информацией//
   _setPopupPhoto = () => {
+    openPopup(popupImagePhoto);
     document.querySelector('.popup__image').src = this._link;
     document.querySelector('.popup__name-image').textContent = this._name;
     document.querySelector('.popup__name-image').alt = this._name;
@@ -46,4 +45,6 @@ export class Card {
 
 }
 
+import {popupImagePhoto} from './constants.js';
+import {openPopup} from './utils.js'
 

@@ -1,10 +1,12 @@
 import {
-  popupProfil, popupAddCard, buttenOpen, buttenAddCard, formProfilElement, nameInput, jobInput, formCardElement, formInputName, formInputLink,
-  profileAuthor, profileAuthorSubtitle, images, popups
+  popupProfil, popupAddCard, buttenFormProfil, buttenFormAddCard, formProfilElement, nameInput, jobInput, formCardElement, formInputName, formInputLink,
+  profileAuthor, profileAuthorSubtitle, images,
 } from './constants.js';
 import { initialCards } from './cards.js';
 import { Card } from './Card.js';
-import { validationInput, FormValidator } from './Validate.js'
+import { FormValidator } from './FormValidator.js'
+import { openPopup, closePopup } from './utils.js'
+import { validationInput } from './constants.js'
 
 
 const validProfil = new FormValidator(validationInput, popupProfil);
@@ -27,10 +29,8 @@ initialCards.forEach((data) => {
 const renderCard = (data) => {
   images.prepend(createNewCard(data));
 }
-const formCard = (evt) => {
+const handleFormCard = (evt) => {
   evt.preventDefault();
-  const formInputName = document.querySelector('.form__input_type_card-name');
-  const formInputLink = document.querySelector('.form__input_type_card-photo');
   const item = {
     name: formInputName.value,
     link: formInputLink.value
@@ -41,38 +41,9 @@ const formCard = (evt) => {
 }
 
 //добавление в попап-карточки значения//
-formCardElement.addEventListener('submit', formCard)
+formCardElement.addEventListener('submit', handleFormCard)
 
-//открытие попапа//
-function openPopup(popup) {
-  popup.classList.add('popup_opened');
-  document.addEventListener('keydown', closePopupsEscape);
-}
 
-//Закрытие попапа//
-function closePopup(popup) {
-  popup.classList.remove('popup_opened');
-  document.removeEventListener('keydown', closePopupsEscape);
-}
-
-//Закрытие попапов ESC //
-function closePopupsEscape(evt) {
-  if (evt.key === 'Escape') {
-    const openedPopup = document.querySelector('.popup_opened');
-    if (openedPopup) {
-      openedPopup.classList.remove('popup_opened');
-    }
-  }
-}
-
-//Закрытие попапов по клику крестика и фона//
-popups.forEach((popup) => {
-  popup.addEventListener('click', (evt) => {
-    if (evt.target === evt.currentTarget || evt.target.classList.contains('popup__button-close')) {
-      closePopup(evt.currentTarget);
-    }
-  });
-});
 
 //заполняем форму содержиым профиля//
 function setFieldData() {
@@ -94,8 +65,16 @@ function submitFormProfile(evt) {
   evt.target.reset();
 }
 
-buttenOpen.addEventListener('click', () => { openPopup(popupProfil); setFieldData(); validProfil.resetInputs() });
-buttenAddCard.addEventListener('click', () => { openPopup(popupAddCard); setFieldDataCard(); validAddCard.resetInputs(); });
+const handleButtenForms = (popup) => {
+  openPopup(popup);
+  setFieldDataCard();
+  setFieldData();
+  validAddCard.resetInputAndButton();
+  validProfil.resetInputAndButton();
+}
+
+buttenFormProfil.addEventListener('click', () => { handleButtenForms(popupProfil) });
+buttenFormAddCard.addEventListener('click', () => { handleButtenForms(popupAddCard) });
 formProfilElement.addEventListener('submit', submitFormProfile);
 
 

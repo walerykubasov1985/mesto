@@ -1,8 +1,9 @@
 const popupProfil = document.querySelector('.popup_profil');
 const popupAddCard = document.querySelector('.popup_add-Card');
+const popupImagePhoto = document.querySelector('.popup_open-photo')
 
-const buttenOpen = document.querySelector('.profile__author-btn');
-const buttenAddCard = document.querySelector('.profile__add-button')
+const buttenFormProfil = document.querySelector('.profile__author-btn');
+const buttenFormAddCard = document.querySelector('.profile__add-button')
 
 const formProfilElement = document.querySelector('.form_profil');
 const nameInput = document.querySelector('.form__input_type_name');
@@ -19,7 +20,18 @@ const images = document.querySelector('.images');
 
 const popups = document.querySelectorAll('.popup');
 
+const validationInput = {
+  formSelector: '.form',
+  inputSelector: '.form__input',
+  submitButtonSelector: '.form__button',
+  inactiveButtonClass: 'form__button_inactive',
+  inputErrorClass: 'form__input_type_error',
+  errorClass: 'form__input-error_activ'
+};
+
+
 export {
-  popupProfil, popupAddCard, buttenOpen, buttenAddCard, formProfilElement, nameInput, jobInput,
-  formCardElement, formInputName, formInputLink, profileAuthor, profileAuthorSubtitle, images, popups
+  popupProfil, popupAddCard, popupImagePhoto, buttenFormProfil, buttenFormAddCard, formProfilElement, nameInput, jobInput,
+  formCardElement, formInputName, formInputLink, profileAuthor, profileAuthorSubtitle, images, popups, validationInput,
 }
+
