@@ -3,7 +3,7 @@ import {
   profileAuthor, profileAuthorSubtitle, images,
 } from './constants.js';
 import { initialCards } from './cards.js';
-import { Card } from './Card.js';
+import { Card } from './Cardes.js';
 import { FormValidator } from './FormValidator.js'
 import { openPopup, closePopup } from './utils.js'
 import { validationInput } from './constants.js'
