@@ -29,5 +29,6 @@ popups.forEach((popup) => {
       closePopup(evt.currentTarget);
     }
   });
-
 });
+
+
