@@ -1,3 +1,6 @@
+import {popupImagePhoto} from './constants.js';
+import {openPopup} from './utils.js'
+
 export class Card {
   constructor(data, templateElement) {
     this._name = data.name;
@@ -44,7 +47,4 @@ export class Card {
   }
 
 }
-
-import {popupImagePhoto} from './constants.js';
-import {openPopup} from './utils.js'
 
