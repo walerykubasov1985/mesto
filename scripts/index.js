@@ -1,6 +1,6 @@
 import {
   popupProfil, popupAddCard, buttenFormProfil, buttenFormAddCard, formProfilElement, nameInput, jobInput, formCardElement, formInputName, formInputLink,
-  profileAuthor, profileAuthorSubtitle, images,
+  profileAuthor, profileAuthorSubtitle, images, image, imageName, popupImagePhoto,
 } from './constants.js';
 import { initialCards } from './cards.js';
 import { Card } from './Card.js';
@@ -16,8 +16,16 @@ validAddCard.enableValidation();
 
 //создание карточки с фото и лайком
 const createNewCard = (data) => {
-  const card = new Card(data, '#images-template');
+  const card = new Card(data, '#images-template', setPopupPhoto);
   return card.generateCard();
+}
+
+//наполнение попа сфото информацией//
+const setPopupPhoto = (link, name) => {
+  openPopup(popupImagePhoto);
+  image.src = link;
+  imageName.textContent = name;
+  image.alt = name;
 }
 
 //вставка всех карточек в images
@@ -43,17 +51,14 @@ const handleFormCard = (evt) => {
 //добавление в попап-карточки значения//
 formCardElement.addEventListener('submit', handleFormCard)
 
-
-
 //заполняем форму содержиым профиля//
-function setFieldData() {
+function setFieldDataProfil() {
   nameInput.value = profileAuthor.textContent;
   jobInput.value = profileAuthorSubtitle.textContent;
 }
 
-function setFieldDataCard() {
-  formInputName.value = '';
-  formInputLink.value = '';
+function setFieldDataCard(form) {
+  form.reset()
 }
 
 //Меняем содержиым профиля//
@@ -65,16 +70,19 @@ function submitFormProfile(evt) {
   evt.target.reset();
 }
 
-const handleButtenForms = (popup) => {
-  openPopup(popup);
-  setFieldDataCard();
-  setFieldData();
-  validAddCard.resetInputAndButton();
+const handleClickOpenPopupProfile = () => {
+  openPopup(popupProfil);
+  setFieldDataProfil();
   validProfil.resetInputAndButton();
 }
+const handleClickOpenPopupAddCard = () => {
+  openPopup(popupAddCard);
+  setFieldDataCard(formCardElement);
+  validAddCard.resetInputAndButton();
+}
 
-buttenFormProfil.addEventListener('click', () => { handleButtenForms(popupProfil) });
-buttenFormAddCard.addEventListener('click', () => { handleButtenForms(popupAddCard) });
+buttenFormProfil.addEventListener('click', () => { handleClickOpenPopupProfile() });
+buttenFormAddCard.addEventListener('click', () => { handleClickOpenPopupAddCard() });
 formProfilElement.addEventListener('submit', submitFormProfile);
 
 

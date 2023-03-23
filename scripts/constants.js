@@ -17,6 +17,8 @@ const profileAuthor = document.querySelector('.profile__author');
 const profileAuthorSubtitle = document.querySelector('.profile__author-subtitle');
 
 const images = document.querySelector('.images');
+const image = document.querySelector('.popup__image');
+const imageName = document.querySelector('.popup__name-image');
 
 const popups = document.querySelectorAll('.popup');
 
@@ -32,6 +34,6 @@ const validationInput = {
 
 export {
   popupProfil, popupAddCard, popupImagePhoto, buttenFormProfil, buttenFormAddCard, formProfilElement, nameInput, jobInput,
-  formCardElement, formInputName, formInputLink, profileAuthor, profileAuthorSubtitle, images, popups, validationInput,
+  formCardElement, formInputName, formInputLink, profileAuthor, profileAuthorSubtitle, images, popups, validationInput, image, imageName
 }
 
