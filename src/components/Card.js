@@ -1,9 +1,9 @@
 export class Card {
-  constructor(data, templateElement, setPopupPhoto) {
+  constructor(data, templateElement, handleCardClick) {
   this._name = data.name;
   this._link = data.link;
   this._templateElement = templateElement;
-  this._setPopupPhoto = setPopupPhoto;
+  this._handleCardClick = handleCardClick;
 }
 
 _getTemplate() {
@@ -24,7 +24,7 @@ generateCard() {
 _setEventListeners() {
   this._element.querySelector('.image__btn-like').addEventListener('click', () => { this._aktivLike() });
   this._element.querySelector('.image__delete').addEventListener('click', () => { this._deleteCard() });
-  this._element.querySelector('.image__photo').addEventListener('click', () => { this._setPopupPhoto(this._link, this._name) });
+  this._element.querySelector('.image__photo').addEventListener('click', () => { this._handleCardClick(this._link, this._name) });
 }
 
 //функция активации лайка//

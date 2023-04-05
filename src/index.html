@@ -8,16 +8,16 @@
   <meta name="keywords" content="Карачевск, Эльбрус, Камчатка, Антарктида,Домбай">
   <meta name="deseription" content=" Жак-Ив Кусто = исследователь океана">
   <title>Mesto</title>
-  <link rel="stylesheet" href="pages/index.css">
+  <!-- <link rel="stylesheet" href="pages/index.css"> -->
 </head>
 
 <body class="page">
   <header class="header">
-    <img class="header__logo" src="images/logo-min.svg" alt="Логотип Место-Россия">
+    <img class="header__logo" src="<%=require('./images/logo-min.svg')%>" alt="Логотип Место-Россия">
   </header>
   <main class="content">
     <section class="profile">
-      <img class="profile__avatar" src="images/Avatar-min.svg" alt="фото Жак-Ив Кусто">
+      <img class="profile__avatar" src="<%=require('./images/Avatar-min.svg')%>" alt="фото Жак-Ив Кусто">
       <div class="profile__info">
         <h1 class="profile__author">Жак-Ив Кусто</h1>
         <button class="profile__author-btn" type="button"></button>
@@ -94,7 +94,7 @@
     </article>
   </template>
 
-  <script type="module" src="scripts/index.js"></script>
+  <script type="module" src="pages/index.js"></script>
 
 </body>
 
