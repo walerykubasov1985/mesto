@@ -1,12 +1,12 @@
 export class FormValidator {
   constructor(data, form) {
-    this._formSelector = data.formSelector;
     this._inputSelector = data.inputSelector;
     this._submitButtonSelector = data.submitButtonSelector;
     this._inactiveButtonClass = data.inactiveButtonClass;
     this._inputErrorClass = data.inputErrorClass;
     this._errorClass = data.errorClass;
     this._form = form;
+    this._inputList = Array.from(this._form.querySelectorAll(this._inputSelector));
   }
 
   //метод ошибки
@@ -36,7 +36,6 @@ export class FormValidator {
 
   //метод проверки всех полей ввода на валидность
   _hasInvalidInput = () => {
-    this._inputList = Array.from(this._form.querySelectorAll(this._inputSelector));
     return this._inputList.some((inputElement) => {
       return !inputElement.validity.valid;
     })
@@ -77,7 +76,7 @@ export class FormValidator {
   }
 
   //сброс инпутов и кнопок
-  resetInputAndButton() {
+  resetInputsAndButtons() {
     this._inputList.forEach((inputElement) => {
       this._hideInputError(inputElement);
     })

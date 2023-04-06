@@ -1,7 +1,6 @@
 import './index.css'
 import {
-  popupProfil, popupAddCard, buttenFormProfil, buttenFormAddCard, nameInput, jobInput, formInputName, formInputLink,
-  profileAuthor, profileAuthorSubtitle, validationInput
+  popupProfil, popupAddCard, buttenFormProfil, buttenFormAddCard, validationInput
 } from '../utils/constants.js';
 import { Card } from '../components/Card.js';
 import { FormValidator } from '../components/FormValidator.js';
@@ -12,9 +11,9 @@ import PopupWithForm from '../components/PopupWithForm.js'
 import UserInfo from '../components/UserInfo.js'
 
 //валидация форм профиля и карточки
-const validProfil = new FormValidator(validationInput, popupProfil);
+const validProfile = new FormValidator(validationInput, popupProfil);
 const validAddCard = new FormValidator(validationInput, popupAddCard);
-validProfil.enableValidation();
+validProfile.enableValidation();
 validAddCard.enableValidation();
 
 //класс открытия попапа с изображением
@@ -23,13 +22,13 @@ popupWithImage.setEventListeners();
 
 //создание карточки с фото и лайком
 const createNewCard = (data) => {
-  const card = new Card(data, '#images-template', () => { popupWithImage.open(data) });
+  const card = new Card(data, '#images-template', (data) => { popupWithImage.open(data) });
   return card.generateCard();
 }
 
 //добавление карточки в images
 const cardsList = new Section({
-  renderer: (data) => { cardsList.setItem(createNewCard(data)) }
+  renderer: (data) => { cardsList.addItem(createNewCard(data)) }
 }, '.images');
 
 //добавление всех карточек
@@ -37,8 +36,8 @@ cardsList.renderItems(initialCards);
 
 //Класс с пользователем
 const userInfo = new UserInfo({
-  userName: '.profile__author',
-  userJob: '.profile__author-subtitle',
+  selectorName: '.profile__author',
+  selectorJob: '.profile__author-subtitle',
 })
 
 //форма изменения данных профиля
@@ -46,38 +45,28 @@ const popupWithProfil = new PopupWithForm({ popupSelector: '.popup_profil', hand
 
 //форма добавления карточки
 const popupWithAddCard = new PopupWithForm({
-  popupSelector: '.popup_add-Card', handleSubmitForm: () => {
-    cardsList.setItem(createNewCard({
-      name: formInputName.value,
-      link: formInputLink.value
+  popupSelector: '.popup_add-Card', handleSubmitForm: (data) => {
+    cardsList.addItem(createNewCard({
+      name: data.nameCard,
+      link: data.linkCard,
+      alt: data.nameCard
     }))
   }
 });
 
-//функция начального наполнения формы данных профиля
-function setFieldDataProfil() {
-  nameInput.value = profileAuthor.textContent;
-  jobInput.value = profileAuthorSubtitle.textContent;
-}
-
 //функция настроек попап с данными профиля
 const handleClickOpenPopupProfile = () => {
   popupWithProfil.open()
-  setFieldDataProfil()
-  validProfil.resetInputAndButton();
+  popupWithProfil.pasteInputValues(userInfo.getUserInfo());
+  validProfile.resetInputsAndButtons();
 }
 //функция настроек попапа с карточками
 const handleClickOpenPopupAddCard = () => {
   popupWithAddCard.open();
-  validAddCard.resetInputAndButton();
+  validAddCard.resetInputsAndButtons();
 }
 
 buttenFormProfil.addEventListener('click', () => { handleClickOpenPopupProfile() });
 buttenFormAddCard.addEventListener('click', () => { handleClickOpenPopupAddCard() });
-// formProfilElement.addEventListener('submit', submitFormProfile);
 popupWithProfil.setEventListeners();
 popupWithAddCard.setEventListeners();
-
-
-
-

@@ -13,23 +13,26 @@ _getTemplate() {
 
 generateCard() {
   this._element = this._getTemplate();
+  this._likeBtn = this._element.querySelector('.image__btn-like');
+  this._imageBtnDelete = this._element.querySelector('.image__delete');
+  this._imagePhoto =  this._element.querySelector('.image__photo');
 
-  this._element.querySelector('.image__photo').src = this._link;
-  this._element.querySelector('.image__photo').alt = this._name;
+  this._imagePhoto.src = this._link;
+  this._imagePhoto.alt = this._name;
   this._element.querySelector('.image__title').textContent = this._name;
   this._setEventListeners();
   return this._element;
 }
 
 _setEventListeners() {
-  this._element.querySelector('.image__btn-like').addEventListener('click', () => { this._aktivLike() });
-  this._element.querySelector('.image__delete').addEventListener('click', () => { this._deleteCard() });
-  this._element.querySelector('.image__photo').addEventListener('click', () => { this._handleCardClick(this._link, this._name) });
+  this._likeBtn.addEventListener('click', () => { this._aktivLike() });
+  this._imageBtnDelete.addEventListener('click', () => { this._deleteCard() });
+  this._imagePhoto.addEventListener('click', () => { this._handleCardClick( this._link,  this._name) });
 }
 
 //функция активации лайка//
 _aktivLike = () => {
-  this._element.querySelector('.image__btn-like').classList.toggle('image__btn-like_activ');
+  this._likeBtn.classList.toggle('image__btn-like_activ');
 }
 //функция удаления карточки с картинкой//
 _deleteCard = () => {
