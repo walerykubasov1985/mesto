@@ -12,6 +12,7 @@
   border: 1px solid #fff;
   cursor: pointer;
   align-self: center;
+  transition: .3s ease;
 }
 
 .profile__author-btn:hover {

@@ -33,6 +33,12 @@ export default class PopupWithForm extends Popup {
   pasteInputValues(data) {
     this._inputsElement.forEach((input) => {
       input.value = data[input.name];
+
     })
+  }
+
+  renderLoading(isLoading) {
+    if(isLoading ) {this._button.textContent = 'Сохранение...'}
+    else {this._button.textContent = 'Сохранение'}
   }
 }

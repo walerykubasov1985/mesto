@@ -14,10 +14,14 @@
 <body class="page">
   <header class="header">
     <img class="header__logo" src="<%=require('./images/logo-min.svg')%>" alt="Логотип Место-Россия">
+    <!-- <%=require('./images/logo-min.svg')%> -->
   </header>
   <main class="content">
     <section class="profile">
-      <img class="profile__avatar" src="<%=require('./images/Avatar-min.svg')%>" alt="фото Жак-Ив Кусто">
+
+      <button class="profile__avatar-btn"><img class="profile__avatar" src="<%=require('./images/Avatar-min.svg')%> " alt="фото Жак-Ив Кусто">
+      </button>
+      <!-- <%=require('./images/Avatar-min.svg')%> -->
       <div class="profile__info">
         <h1 class="profile__author">Жак-Ив Кусто</h1>
         <button class="profile__author-btn" type="button"></button>
@@ -69,6 +73,32 @@
       <button class="popup__button-close" type="button"></button>
     </div>
   </div>
+
+  <div class="popup popup_update-avatar">
+    <div class="popup__container-avatar">
+      <h2 class="popup__title popup__title_avatar">Обновить аватар</h2>
+      <form class="form form_avatar" name="form_avatar" novalidate>
+        <label class="form__field">
+          <input class="form__input form__input_type_avatar" id="avatar" type="URL" name="avatar"
+            placeholder="Ссылка на картинку" value="" required>
+          <span class="form__input-error avatar-error"></span>
+        </label>
+        <button class="form__button form__button_avatar" type="submit">Сохранить</button>
+      </form>
+      <button class="popup__button-close" type="button"></button>
+    </div>
+  </div>
+
+  <div class="popup popup_delete-card">
+    <div class="popup__container-delete-card">
+      <h2 class="popup__title popup__title_delete-card">Вы уверены?</h2>
+      <form class="form form_delete-card" name="form_delete-card" novalidate>
+        <button class="form__button form__button_delete-card" type="submit">Да</button>
+      </form>
+      <button class="popup__button-close" type="button"></button>
+    </div>
+  </div>
+
   <div class="popup popup_open-photo">
     <div class="popup__container-image">
       <img class="popup__image" src='#' alt="">
@@ -76,13 +106,17 @@
       <button class="popup__button-close" type="button"></button>
     </div>
   </div>
+
   <template id="images-template">
     <article class="image">
       <img class="image__photo" src="#" alt="">
       <button class="image__delete" type="button"></button>
       <div class="image__caption">
         <h2 class="image__title"></h2>
-        <button class="image__btn-like" type="button"></button>
+        <div class="image__likes">
+          <button class="image__btn-like" type="button"></button>
+          <span class="image__likes-number"></span>
+        </div>
       </div>
     </article>
   </template>
