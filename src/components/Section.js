@@ -8,7 +8,6 @@ export default class Section {
   }
 
   renderItems(items) {
-    items.forEach(this._renderer)
+    items.forEach(this._renderer);
   }
-
 }
