@@ -41,8 +41,8 @@ export class Card {
     this._imageLikes.textContent = this._likes.length;
     this._element.querySelector(".image__title").textContent = this._name;
     this._setEventListeners();
-    this._checkLikes();
     this._checkDeleteBtn();
+    this.updateLikesImage();
     return this._element;
   }
 
@@ -63,20 +63,20 @@ export class Card {
     });
   }
 
-  // Проверка, стоит ли лайк на карточке
-  _checkLikes() {
-    if (
-      this._likes.some((user) => {
-        return this._userId === user._id;
-      })
-    ) {
-      this._likeBtn.classList.add("image__btn-like_activ");
-    }
+  _isLikes() {
+    return this._likes.some((user) => this._userId === user._id);
+  }
+  updateLikes(data) {
+    this._likes = data.likes;
   }
 
-  updateLikes(likes) {
-    this._imageLikes.textContent = likes.length;
-    this._likeBtn.classList.toggle("image__btn-like_activ");
+  updateLikesImage() {
+    this._imageLikes.textContent = this._likes.length;
+    if (this._isLikes()) {
+      this._likeBtn.classList.add("image__btn-like_activ");
+    } else {
+      this._likeBtn.classList.remove("image__btn-like_activ");
+    }
   }
 
   //функция удаления карточки с картинкой//

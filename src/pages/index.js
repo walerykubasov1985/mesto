@@ -45,11 +45,11 @@ Promise.all(initialData)
 
 //валидация форм профиля и карточки
 const profileFormValidator = new FormValidator(validationInput, popupProfile);
-const addCardFormValidator = new FormValidator(validationInput, popupAddCard);
+const сardFormValidator = new FormValidator(validationInput, popupAddCard);
 const avatarFormValidator = new FormValidator(validationInput, popupAvatar);
 avatarFormValidator.enableValidation();
 profileFormValidator.enableValidation();
-addCardFormValidator.enableValidation();
+сardFormValidator.enableValidation();
 
 //создание карточки с фото и лайком
 const createNewCard = (data) => {
@@ -76,7 +76,8 @@ const createNewCard = (data) => {
       api
         .addLike(cardId)
         .then((data) => {
-          card.updateLikes(data.likes);
+          card.updateLikes(data);
+          card.updateLikesImage();
         })
         .catch((err) => {
           console.log(`Ошибка: ${err}`);
@@ -86,7 +87,8 @@ const createNewCard = (data) => {
       api
         .deleteLike(cardId)
         .then((data) => {
-          card.updateLikes(data.likes);
+          card.updateLikes(data);
+          card.updateLikesImage();
         })
         .catch((err) => {
           console.log(`Ошибка: ${err}`);
@@ -185,7 +187,7 @@ const handleClickOpenPopupProfile = () => {
 //функция настроек попапа с карточками
 const handleClickOpenPopupAddCard = () => {
   popupWithAddCard.open();
-  addCardFormValidator.resetInputsAndButtons();
+  сardFormValidator.resetInputsAndButtons();
 };
 //функция настроек попапа с аватаром
 const handleClickOpenPopupAvatar = () => {

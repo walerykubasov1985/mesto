@@ -48,10 +48,10 @@ export class FormValidator {
   _toggleButtonState = () => {
     if (this._hasInvalidInput()) {
       this._buttonElement.classList.add(this._inactiveButtonClass);
-      this._buttonElement.disabled;
+      this._buttonElement.disabled = true;
     } else {
       this._buttonElement.classList.remove(this._inactiveButtonClass);
-      this._buttonElement.disabled;
+      this._buttonElement.disabled = false;
     }
   };
 
@@ -64,8 +64,6 @@ export class FormValidator {
         this._toggleButtonState();
       });
     });
-
-    this._form.addEventListener("submit", () => {});
   };
 
   //метод добавления обработки форме
