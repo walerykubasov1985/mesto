@@ -63,7 +63,7 @@ export class Card {
     });
   }
 
-  _isLikes() {
+  _isLiked() {
     return this._likes.some((user) => this._userId === user._id);
   }
   updateLikes(data) {
@@ -72,7 +72,7 @@ export class Card {
 
   updateLikesImage() {
     this._imageLikes.textContent = this._likes.length;
-    if (this._isLikes()) {
+    if (this._isLiked()) {
       this._likeBtn.classList.add("image__btn-like_activ");
     } else {
       this._likeBtn.classList.remove("image__btn-like_activ");
